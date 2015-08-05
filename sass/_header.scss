@@ -1,0 +1,436 @@
+@import "bootstrap/variables";
+@import 'colors';
+@import 'mixins';
+
+.top-line {
+	height: 10px;
+	background-color: $pink;
+}
+
+.header {
+	@include pink-border-bottom;
+	@include footer-gradient;
+	height: 115px;
+}
+
+.logo {
+	margin-top: 12px;
+	width: 410px;
+	height: 90px;
+}
+
+.header-bottom,
+.header-top {
+	float: right;
+	width: 100%;
+	p,
+	a {
+		color: $dark-pink;
+		font-size: 13px;
+		font-style: italic;
+		font-weight: 300;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: $green;
+	}
+}
+
+.header-top {
+	margin-top: 12px;
+	margin-bottom: 9px;
+}
+
+.header-bottom p {
+	text-align: right;
+}
+
+.top-left,
+.material-search-holder {
+	width: 65%;
+	float: left;
+
+	.input-group {
+		position: relative;
+		float: right;
+		bottom: 0;
+		height: 35px;
+	}
+
+	.form-control {
+		@include border-left-radius(10px);
+		@include border-right-radius(0);
+		width: 80%;
+		float: left;
+		border: 1px solid $dark-pink;
+		border-right: 0;
+	}
+
+	.search-btn {
+		@include border-right-radius(10px);
+		width: 34px;
+		height: 34px;
+		background-color: $green;
+		color: $white;
+		border: 0;
+
+		&:hover {
+			color: $dark-pink;
+		}
+	}
+}
+
+.top-left > .fb-like {
+	height: 31px;
+	float: right;
+	margin-right: 15px;
+}
+
+.material-search-holder {
+	width: 450px;
+	margin-top: 15px;
+
+	.material-search {
+		float: left;
+
+		.form-control {
+			width: 84%;
+		}
+	}
+}
+
+.top-right {
+	width: 30%;
+	float: right;
+
+	.cart-btn {
+		@include border-radius(10px);
+		width: 160px;
+		height: 65px;
+		background-color: $white;
+		border: 1px solid $dark-pink;
+		padding: 12px 15px;
+		float: right;
+	}
+
+	.cart-inner-text {
+		float: left;
+		color: $grey-text;
+		font-size: 13px;
+		font-weight: 400;
+		padding-left: 15px;
+
+		span {
+			color: darken($dark-grey, 30%);
+		}
+	}
+
+	a,
+	a:hover {
+		float: right;
+		color: $dark-pink;
+		margin-top: 10px;
+		font-size: 16px;
+	}
+
+	.cart-dropdown-btn {
+		background: none;
+		border: 0;
+		float: right;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 41px;
+
+		i {
+			float: right;
+			margin-right: 5px;
+		}
+	}
+}
+
+// NAVIGATION //
+
+.navline {
+	@include pink-border-bottom;
+	@include menu-gradient;
+	height: 55px;
+}
+
+.navigation {
+
+	.menu-item {
+		float: left;
+		padding: 0 20px;
+		height: 55px;
+
+		> a,
+		> a:hover,
+		> i {
+			@include text-shadow(1px 1px 1px $dark-pink);
+			color: $white;
+			text-decoration: none;
+			font-size: 15px;
+			font-weight: 300;
+			line-height: 55px;
+			padding-bottom: 16px;
+		}
+
+		> a:hover {
+			border-bottom: 2px solid $green;
+		}
+
+		i {
+			margin-right: 15px;
+		}
+
+		&:last-child {
+			float: right;
+		}
+
+		>button,
+		>button:hover {
+			@include text-shadow(1px 1px 1px $dark-pink);
+			color: $white;
+			text-decoration: none;
+			font-size: 15px;
+			font-weight: 300;
+			padding-top: 17px;
+			padding-bottom: 15px;
+			border: 0;
+			background-color: transparent;
+		}
+
+		>button:hover {
+			border-bottom: 2px solid $green;
+		}
+	}
+}
+
+
+// The dropdown wrapper (div)
+.dropup,
+.dropdown {
+	position: relative;
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+	outline: 0;
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+	@include transition(opacity .3s);
+	@include opacity(0);
+	visibility: hidden;
+	position: absolute;
+	top: 100%;
+	left: 20px;
+	z-index: $zindex-dropdown;
+	float: left;
+	min-width: 180px;
+	padding-left: 10px;
+	margin: 0; // override default ul
+	list-style: none;
+	font-size: $font-size-base;
+	text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+	background-color: $dark-grey;
+
+	> li {
+		float: none;
+		border-bottom: 1px solid $pink;
+		height: 34px;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+
+		&:hover {
+			background-color: $pink;
+		}
+
+		> a {
+			@include transition(all .5);
+			line-height: 30px;
+			color: $grey-text;
+			display: block;
+			clear: both;
+			white-space: nowrap;
+			padding-left: 5px;
+
+			&:hover {
+				color: $white;
+				padding-left: 10px;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// Open state for the dropdown
+.open {
+	// Show the menu
+	> .dropdown-menu {
+		@include opacity(1);
+		visibility: visible;
+	}
+
+	// Remove the outline when :focus is triggered
+	> a {
+		outline: 0;
+	}
+}
+
+.dropdown:hover>.dropdown-menu,
+.dropdown-submenu:hover>.dropdown-menu {
+	@include opacity(1);
+	visibility: visible;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0;
+	left: 100%;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+	display: block;
+}
+
+.dropdown-submenu {
+
+	> button {
+		@include transition(all .5);
+		background: none;
+		border: 0;
+		height: 34px;
+		padding-left: 5px;
+		width: 100%;
+		text-align: left;
+
+		&:hover {
+			color: $white;
+			padding-left: 10px;
+		}
+	}
+}
+
+.submenu-color {
+	background-color: $light-grey-text;
+	color: $white;
+	border-left: 4px solid $pink;
+
+	>li {
+		border: 0;
+
+		&:hover {
+			background-color: $grey-text;
+		}
+	}
+}
+
+.cart-dropdown {
+	@include border-top-left-radius(10px);
+	border: 1px solid $dark-pink;
+	background-color: $white;
+	top: 40px;
+	left: -106px;
+	min-width: 250px;
+	color: $grey-text;
+	float: left;
+	padding: 10px;
+
+	li {
+		font-size: 13px;
+		font-weight: 300;
+		line-height: 20px;
+		border: 0;
+		height: 20px;
+
+		&:hover {
+			background-color: $white;
+		}
+
+		span {
+			font-weight: 600;
+			width: 150px;
+			display: block;
+			float: left;
+		}
+	}
+
+	.cart-header {
+		border-bottom: 1px solid $light-grey;
+		margin-bottom: 5px;
+		padding-bottom: 5px;
+	}
+
+	.cart-summ {
+		border-top: 1px solid $light-grey;
+		margin-top: 5px;
+		padding-top: 5px;
+	}
+}
+
+.dropdown-tocart-btn {
+	@include border-bottom-radius(10px);
+	background: $dark-pink;
+	color: $white;
+	height: 45px;
+	width: 250px;
+	position: absolute;
+	bottom: -45px;
+	border: 0;
+	left: -1px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 20px;
+
+	&:hover {
+		color: $green;
+	}
+}
+
+
+// MOBILE MENU //
+
+.mobile-header {
+	@include menu-gradient;
+	height: 80px;
+	padding-top: 10px;
+
+	i {
+		color: $green;
+	}
+
+	.fa-shopping-cart {
+		margin-top: 2px;
+	}
+
+	.fa-bars {
+		margin-top: 4px;
+	}
+}
+
+.bottom-greenline-helper {
+	border-bottom: 2px solid $green !important;
+	margin-bottom: 2px !important;
+}
+
+.menu-item > .dropdown-menu {
+	border-left: 2px solid $green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

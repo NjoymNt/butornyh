@@ -1,0 +1,44 @@
+@import 'basics';
+@import 'colors';
+
+.step-slider-pager {
+	position: absolute;
+	right: 150px;
+	top: -60px;
+
+	.pager-dots {
+		li {
+			background-color: $light-grey;
+			cursor: pointer;
+		}
+	}
+}
+
+.step-slider-holder {
+	overflow: hidden;
+}
+
+.step-slider {
+	height: 370px;
+	width: 2500px;
+	padding-top: 10px;
+}
+
+.step-slider-item-box {
+
+	@media screen and (min-width: $lg-min-width) {
+		width: 292px;
+	}
+
+	@media screen and (max-width: $lg-min-width) {
+		width: 242px;
+	}
+
+	@media screen and (max-width: $md-min-width) {
+		width: 374px;
+	}
+}
+
+
+
+

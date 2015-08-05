@@ -1,0 +1,106 @@
+@import 'compass/css3';
+@import 'mixins';
+@import 'basics';
+@import 'colors';
+
+.item-box {
+	position: relative;
+	margin-bottom: 30px;
+
+	.item-box-image {
+		@include border-radius(10px);
+		position: relative;
+		height: 280px;
+		width: 100%;
+		margin-bottom: 15px;
+		cursor: pointer;
+
+		img {
+			@include border-radius(10px);
+			@include resp-img;
+		}
+	}
+
+	.item-box-name {
+		padding-left: 10px;
+		font-size: 15px;
+		line-height: 18px;
+		color: $grey-text;
+		text-decoration: none;
+	}
+
+	.item-box-price-left,
+	.item-box-price-right {
+		@include border-radius(5px);
+		font-size: 15px;
+		padding: 5px 10px;
+		position: absolute;
+		z-index: 999;
+	}
+
+	.item-box-price-left {
+		color: $white;
+		background-color: $dark-pink;
+		left: 10px;
+		bottom: -5px;
+
+		&:before {
+			content: ' ';
+			height: 1px;
+			border-bottom: 1px solid $white;
+			width: 90%;
+			position: absolute;
+			top: 15px;
+			left: 5%;
+		}
+	}
+
+	.item-box-price-right {
+		color: $grey-text;
+		background-color: $green;
+		right: 10px;
+		bottom: -5px;
+
+		@media screen and (max-width: $xs-max-width) {
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			width: 70%;
+			text-align: center;
+		}
+	}
+}
+
+.badges {
+	width: 50px;
+	height: 90px;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+}
+
+.action-badge,
+.new-item-badge {
+	@include border-radius(25px);
+	position: relative;
+	width: 50px;
+	height: 50px;
+	color: $white;
+	text-align: center;
+	line-height: 50px;
+	font-weight: 600;
+}
+
+.action-badge {
+	background-color: $red;
+	font-size: 14px;
+	z-index: 999;
+	margin-bottom: -10px;
+}
+
+.new-item-badge {
+	background-color: $pink;
+	font-size: 10px;
+	z-index: 888;
+}
+

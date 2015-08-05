@@ -1,0 +1,202 @@
+@import 'compass/css3';
+@import 'colors';
+
+.item-left {
+
+	.item-image {
+
+		img {
+			@include border-radius(10px);
+		}
+	}
+
+	.item-gallery {
+		width: 100%;
+		height: 150px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+
+		img {
+			@include border-radius(10px);
+			height: 100%;
+			width: 30%;
+			object-fit: cover;
+			overflow: hidden;
+			float: left;
+			margin-right: 3%;
+			border: 2px solid transparent;
+
+			&:hover {
+				border: 2px solid $green;
+			}
+		}
+	}
+}
+
+.item-right {
+
+	.item-price {
+		font-size: 40px;
+		color: $dark-pink-text;
+		margin-top: 35px;
+		margin-bottom: 25px;
+		line-height: 40px;
+	}
+
+	.options-selector-holder {
+		margin: 40px 0;
+
+		.panel-heading {
+			@include border-radius(5px);
+			background-color: $pink;
+			height: 70px;
+			padding: 5px;
+			border: 0;
+
+			img {
+				@include border-radius(5px);
+				width: 60px;
+				height: 60px;
+				border: 2px solid $white;
+				object-fit: cover;
+				overflow: hidden;
+				float: left;
+
+				&:hover {
+					border-color: $green;
+				}
+			}
+
+			.select-text {
+				color: darken($grey-text, 20%);
+				float: left;
+				margin-left: 15px;
+
+				i {
+					margin-left: 10px;
+				}
+			}
+
+			.selection-btn {
+				color: $light-pink;
+				float: right;
+				margin-right: 15px;
+				line-height: 60px;
+				font-size: 18px;
+
+				&:hover {
+					color: $green;
+					text-decoration: none;
+				}
+
+				i {
+					margin-right: 15px;
+				}
+			}
+		}
+
+		.panel-body {
+
+			.selector-holder {
+				position: relative;
+				width: 60px;
+				height: 60px;
+				margin-right: 5px;
+				margin-bottom: 5px;
+				float: left;
+
+				> img {
+					@include border-radius(5px);
+					width: 100%;
+					height: 100%;
+					border: 2px solid $light-pink;
+					object-fit: cover;
+					overflow: hidden;
+					cursor: pointer;
+
+					&:hover {
+						border-color: $green;
+					}
+				}
+			}
+
+			.selector-hover-helper {
+				@include border-radius(5px);
+				@include transition(opacity .3s);
+				@include opacity(0);
+				width: 100px;
+				height: 100px;
+				background-color: $green;
+				position: absolute;
+				top: -105px;
+				left: -20px;
+				visibility: hidden;
+				padding: 2px;
+
+				> img {
+					@include border-radius(5px);
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					overflow: hidden;
+					border: 0;
+				}
+			}
+
+			.selector-holder:hover .selector-hover-helper {
+				@include opacity(1);
+				visibility: visible;
+			}
+		}
+	}
+
+	.selection-list-holder,
+	.shipping-list-holder {
+		margin: 35px 0 20px;
+
+		.selection-list,
+		.shipping-list {
+			margin-top: 10px;
+
+			li {
+				font-size: 14px;
+				position: relative;
+				padding-left: 8px;
+
+				&:before {
+					content: url('../img/list_dot.png');
+					margin-right: 5px;
+					position: absolute;
+					top: -3px;
+					left: 0;
+				}
+			}
+		}
+	}
+}
+
+.tocart-btn {
+	@include border-radius(10px);
+	@include text-shadow(1px 1px 1px $dark-pink);
+	width: 290px;
+	height: 70px;
+	background-color: $pink;
+	color: $white;
+	font-size: 30px;
+	font-weight: 600;
+	text-transform: uppercase;
+	line-height: 70px;
+	text-align: center;
+	border: 0;
+
+	&:hover {
+		color: $green;
+	}
+}
+
+
+
+
+
+
+

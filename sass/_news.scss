@@ -1,0 +1,104 @@
+
+@import 'compass/css3';
+@import 'basics';
+@import 'mixins';
+@import 'colors';
+
+.news-box {
+	@include border-radius(10px);
+	height: 210px;
+	background-color: $white;
+	overflow: hidden;
+	border-left: 3px solid $dark-pink;
+
+	@media screen and (max-width: $xs-max-width) {
+		margin-top: 30px;
+	}
+
+	.more-btn {
+		position: absolute;
+		bottom: 10px;
+		right: 25px;
+		font-size: 14px;
+		color: $light-pink;
+		font-weight: 300;
+		font-style: italic;
+
+		&:hover {
+			color: $green;
+			text-decoration: none;
+		}
+	}
+}
+
+.news-box-pic {
+	position: relative;
+	float: left;
+	width: 40%;
+	height: 210px;
+	overflow: hidden;
+
+	img {
+		@include resp-img;
+	}
+}
+
+
+.news-box-textholder {
+	position: relative;
+	float: right;
+	width: 60%;
+	height: 210px;
+	padding: 15px 15px 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+
+
+	.news-box-title {
+		font-size: 18px;
+	}
+
+	.news-box-date {
+		font-size: 14px;
+		font-style: italic;
+		font-weight: 300;
+		color: $light-pink;
+		line-height: 35px;
+
+		a {
+			color: $light-pink;
+
+			&:hover {
+				color: $green;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.news-box-text {
+		font-size: 14px;
+		font-weight: 300;
+		width: 100%;
+		height: 58%;
+		overflow: hidden;
+	}
+}
+
+
+.static-page-title {
+	font-size: 18px;
+	//margin-bottom: 20px;
+	border-left: 3px solid $dark-pink;
+	padding-left: 10px;
+	height: 18px;
+	line-height: 18px;
+}
+
+.static-page-text {
+	margin-top: 20px;
+}
+
+
+
+
